@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-node-app
+  namespace: example-node-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: example-node-app
+  template:
+    metadata:
+      labels:
+        app: example-node-app
+    spec:
+      containers:
+      - name: example-node-app
+        image: abdellee/example-node-app:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+      
